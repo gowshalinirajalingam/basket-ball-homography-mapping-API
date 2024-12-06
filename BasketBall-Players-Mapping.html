@@ -1,0 +1,140 @@
+<script type="text/javascript">
+    RED.nodes.registerType('BasketBall-Players-Mapping', {
+        category: 'Quick AI',
+        subcategory: 'Homography Mapping',
+        color: "#ff0000",
+        defaults: {
+            //this is test stuff take out later
+            name: { value: "BasketBall-Players-Mapping" },
+            
+            func: { value: "\nreturn msg" },
+            outputs: { value: 1 }  // Ofuscated way to persist the number of outputs of the node
+
+        },
+        oneditprepare: async function () {
+            var that = this;
+            console.log(that)
+            
+
+        },
+
+
+
+        oneditsave: function () {
+
+            
+        },
+
+
+
+        inputs: 1,
+        outputs: 1,
+        icon: "node-red.png",
+        label: function () {
+            return this.name || "Map players";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="BasketBall-Players-Mapping">
+
+      <style>
+        .busy
+    {
+    animation: spin 1s infinite linear;
+    display:inline-block;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 35px;
+    font-style:normal;
+    color:#fff;
+    }
+
+    .select2-container--default .select2-results__option--selected{
+      display: none;
+    }
+    .ui.form textarea:not([rows]){
+      min-height: 0 !important;
+      height: 0 !important;
+      }
+
+
+    .busy::before
+    {
+    content:"\25E0";
+    }
+
+    @keyframes spin
+    {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(359deg);}
+    }
+
+    #main-loader-fish{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(255,255,255,0.95);
+    }
+
+    .ui.loader::after, .ui.loader::before {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        z-index: 10 !important;
+    }
+    </style>
+
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2021.1.119/styles/kendo.bootstrap-v4.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"/>
+    <div id="main-fish" class="ui container">
+      <div id="main-loader-fish" class="ui centered inline loader"></div>
+      <div class="ui form">
+          <div class="auto-ai-form-2" style="padding-bottom:20px" >
+
+          <div class="fluid field">
+                <div class="ui labeled input">
+                  <div class="ui label" style="width:180px">Name</div>
+                  <input
+                      id="node-input-name"
+                      placeholder="Name"
+                      class="ui input"
+                      type="text"
+                      name="name"
+                      required
+                      />
+                </div>
+          </div>
+          
+            
+
+          </div>
+        </div>
+      </div>
+</script>
+
+
+<script type="text/x-red" data-help-name="BasketBall-Players-Mapping">
+    <p>This node runs Image Classification</p>
+    <h3>dataset_upload_folder</h3>
+    <p>Give image folder path</p>
+    <h3>out_folder</h3>
+    <p>path to save the train and test folders</p>
+    <h3>test_size</h3>
+    <p>ratio or size of test data</p>
+    </dl>
+    <h3>Parameters</h3>
+    <dl class="message-properties">
+        <dt>dataset_upload_folder<span class="property-type">string</span></dt>
+        <dd>Entire path to folder of images which is to be split into train and test</dd>
+        <dt>out_folder<span class="property-type">string</span></dt>
+        <dd>Path where the train and test folders are saved after split</dd>
+        <dt>test_size<span class="property-type">int</span></dt>
+        <dd>split ratio for test</dd>
+    </dl>
+    <h3>Output</h3>
+
+    <h3>Help</h3>
+    <p><a href="">Need to make one for this node</a></p>
+
+</script>
